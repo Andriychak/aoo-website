@@ -1,0 +1,565 @@
+/* Основні налаштування (Гама з візитівки) */
+:root {
+    --primary-color: #222222; /* Майже чорний - основний текст та заголовки */
+    --accent-color: #9e2a2b;  /* Стриманий бордовий для акцентів (кнопки, іконки) - можна змінити на чорний #000 якщо треба строгіше */
+    --light-bg: #f7f7f7;      /* Світло-сірий фон для секцій */
+    --text-color: #444444;    /* Основний колір тексту */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавний скрол для всієї сторінки */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 14px 35px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Секції */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 20px auto 0;
+}
+
+/* Header */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-image {
+    height: 50px; /* Великий розмір логотипа */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo-text .district {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.logo-text .name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.logo-text .position {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-list a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.header-phone a {
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-phone i {
+    color: var(--accent-color);
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+.burger-menu.active span:nth-child(2) { opacity: 0; }
+.burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+/* Mobile Nav */
+.mobile-nav {
+    position: fixed;
+    top: 130px; /* Відступ під високою шапкою */
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-150%);
+    transition: var(--transition);
+    z-index: 999;
+    text-align: center;
+}
+
+.mobile-nav.active {
+    transform: translateY(0);
+}
+
+.mobile-link {
+    display: block;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    border-bottom: 1px solid #eee;
+}
+
+/* Hero Section (Заглушка фону - замініть URL на своє фото) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1920x1080/?office,lawyer') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.about-info-box {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-info-box h3 {
+    color: var(--white);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-info-box h3 i {
+    color: var(--accent-color);
+}
+
+.about-info-box ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.about-info-box .note {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.placeholder-text {
+    font-style: italic;
+    color: #999;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-left: 3px solid #ccc;
+}
+
+/* Services Section */
+.services {
+    background-color: var(--light-bg);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 40px 30px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.service-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+}
+
+.service-card .icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.service-list {
+    margin-top: 20px;
+    text-align: left;
+    padding-left: 0;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.service-list li {
+    font-size: 0.95rem;
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 8px;
+    color: #666;
+}
+
+.service-list li::before {
+    content: "\f00c"; /* Font Awesome check icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 0.8rem;
+}
+
+/* FAQ Section (Accordion) */
+.faq {
+    background-color: var(--white);
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.accordion-header:hover {
+    background-color: var(--light-bg);
+}
+
+.accordion-header span i {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.accordion-item.active .accordion-header span i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 25px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 300px; /* Достатня висота для контенту */
+    padding-bottom: 25px;
+}
+
+/* Contacts Section */
+.contacts {
+    background-color: var(--light-bg);
+}
+
+.contacts-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.contact-item {
+    background-color: var(--white);
+    padding: 30px;
+    margin: 20px 0;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.contact-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item h3 i {
+    margin-right: 15px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.contact-item p {
+    font-size: 1.1rem;
+    margin-left: 35px; /* Відступ під іконку */
+}
+
+.contact-item a {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
+}
+
+.map-container {
+    height: 505px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: #aaa;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Messenger Buttons */
+.messenger-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1001;
+}
+
+.m-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+    font-size: 28px;
+}
+
+.viber { background-color: #7360f2; }
+.telegram { background-color: #0088cc; }
+
+.m-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-grid, .contacts-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .hero-content h1 { font-size: 2.2rem; }
+    .map-container { height: 350px; }
+}
+
+@media (max-width: 768px) {
+    .nav, .header-phone { display: none; }
+    .burger-menu { display: flex; }
+    .header { padding: 10px 0; }
+    .mobile-nav { top: 110px; }
+    
+    .logo-text .district { font-size: 0.65rem; }
+    .logo-text .name { font-size: 1.1rem; }
+    
+    .section-title { font-size: 1.8rem; margin-bottom: 40px; }
+    .hero { height: 400px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .btn { padding: 12px 25px; font-size: 0.9rem; }
+    
+    .messenger-fixed { bottom: 20px; right: 20px; }
+    .m-btn { width: 50px; height: 50px; font-size: 24px; }
+}
