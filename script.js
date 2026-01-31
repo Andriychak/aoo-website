@@ -67,4 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
+
+
+
+    // 5. Випадковий фон для секції hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        let backgroundCount = 2; // Кількість доступних фонових зображень
+        function getrandom() {
+            return Math.floor(Math.random() * backgroundCount) + 1;
+        }
+        hero.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7))," + " url('img/hero/background" + getrandom() + ".jpg')";
+    }
 });
