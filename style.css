@@ -237,9 +237,10 @@ ul {
     border-bottom: 1px solid #eee;
 }
 
-/* Hero Section (Заглушка фону - замініть URL на своє фото) */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/entrance.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 500px;
     display: flex;
     align-items: center;
