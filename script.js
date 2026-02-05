@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Мобільне меню
+    // 1. Mobile Menu
     const burgerMenu = document.getElementById('burgerMenu');
     const mobileNav = document.getElementById('mobileNav');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             burgerMenu.classList.toggle('active');
         });
 
-        // Закриття меню при кліку на посилання
+        // Closing menu on link click
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Плавний скрол для всіх якірних посилань (включаючи логотип)
+    // 2. Smooth scroll for all anchor links (including logo)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Вираховуємо висоту хедера для коректного зміщення
+                // Calculate header height for correct offset
                 const headerOffset = document.querySelector('.header').offsetHeight;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. FAQ Акордеон
+    // 3. FAQ Accordion
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     accordionHeaders.forEach(header => {
@@ -50,19 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
 
-            // Закриваємо всі інші активні елементи (опціонально, але зручно)
+            // Close all other accordion items
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
                 otherItem.classList.remove('active');
             });
 
-            // Якщо елемент не був активним, відкриваємо його
+            // Open the clicked item if it was not active
             if (!isActive) {
                 item.classList.toggle('active');
             }
         });
     });
 
-    // 4. Динамічна дата в футері
+    // 4. Dynamic Date in Footer
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // 5. Випадковий фон для секції hero
+    // 5. Random Hero Background
     const hero = document.querySelector('.hero');
     if (hero) {
-        let backgroundCount = 2; // Кількість доступних фонових зображень
+        let backgroundCount = 2; // Number of available background images
         function getRandom() {
             return Math.floor(Math.random() * backgroundCount) + 1;
         }

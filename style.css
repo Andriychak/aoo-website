@@ -1,9 +1,9 @@
-/* Основні налаштування (Гама з візитівки) */
+/* Base colors */
 :root {
     --primary-color: #222222; /* Майже чорний - основний текст та заголовки */
-    --accent-color: #3E753B;  /* Стриманий бордовий для акцентів (кнопки, іконки) - можна змінити на чорний #000 якщо треба строгіше */
-    --light-bg: #f7f7f7;      /* Світло-сірий фон для секцій */
-    --text-color: #444444;    /* Основний колір тексту */
+    --accent-color: #556832;  /* Dark olive for accents */
+    --light-bg: #f7f7f7;      /* Light grey background for sections */
+    --text-color: #444444;    /* Base text color */
     --white: #ffffff;
     --transition: all 0.3s ease;
 }
@@ -15,7 +15,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Плавний скрол для всієї сторінки */
+    scroll-behavior: smooth; /* Smooth scrolling for entire page */
 }
 
 body {
@@ -48,7 +48,7 @@ ul {
     padding: 0 20px;
 }
 
-/* Кнопки */
+/* Buttons */
 .btn {
     display: inline-block;
     background-color: var(--accent-color);
@@ -69,7 +69,7 @@ ul {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Секції */
+/* Sections */
 .section {
     padding: 80px 0;
 }
@@ -114,9 +114,23 @@ ul {
 }
 
 .logo-image {
-    height: 50px; /* Великий розмір логотипа */
-    width: auto;
-    object-fit: contain;
+    height: 50px;
+    min-width: 73px;
+    fill: var(--accent-color); 
+}
+
+.logo-image text {
+    fill: var(--accent-color);
+    font-family: Verdana, Verdana; 
+    font-size: 245px;
+}
+
+.logo-image circle {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 20px;
 }
 
 .logo-text {
@@ -211,7 +225,7 @@ ul {
 /* Mobile Nav */
 .mobile-nav {
     position: fixed;
-    top: 130px; /* Відступ під високою шапкою */
+    top: 130px;
     left: 0;
     width: 100%;
     background-color: var(--white);
@@ -441,7 +455,7 @@ ul {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 300px; /* Достатня висота для контенту */
+    max-height: 300px; /* Enough height for content */
     padding-bottom: 25px;
 }
 
@@ -480,7 +494,7 @@ ul {
 
 .contact-item p {
     font-size: 1.1rem;
-    margin-left: 35px; /* Відступ під іконку */
+    margin-left: 35px; /* Gap between icon and text */
 }
 
 .contact-item a {
@@ -538,17 +552,22 @@ ul {
 }
 
 /* Responsive Design */
+@media (max-width: 1080px) {
+    .header-phone { display: none; }
+}
+
 @media (max-width: 992px) {
     .about-grid, .contacts-wrapper {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    /* .header-phone { display: none; } */
     .hero-content h1 { font-size: 2.2rem; }
     .map-container { height: 350px; }
 }
 
 @media (max-width: 768px) {
-    .nav, .header-phone { display: none; }
+    .nav { display: none; }
     .burger-menu { display: flex; }
     .header { padding: 10px 0; }
     .mobile-nav { top: 110px; }
