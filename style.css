@@ -435,6 +435,8 @@ ul {
 
 .accordion-header:hover {
     background-color: var(--light-bg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
 .accordion-header span i {
@@ -561,7 +563,6 @@ ul {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    /* .header-phone { display: none; } */
     .hero-content h1 { font-size: 2.2rem; }
     .map-container { height: 350px; }
 }
