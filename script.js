@@ -62,12 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Dynamic Date in Footer
+    // 4. Dynamic Dates in Document
     const yearSpan = document.getElementById('year');
+    const experienceSpan = document.getElementById('experience');
+    const experienceStartYear = 2010;
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
-
+    if (experienceSpan) {
+        const currentYear = new Date().getFullYear();
+        const experienceYears = currentYear - experienceStartYear;
+        experienceSpan.textContent = `${experienceYears} ${experienceYears.toString().endsWith('1') && !experienceYears.toString().endsWith('11') ? 'року' : 'років'}`;
+    }
 
 
     // 5. Random Hero Background
