@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Random Hero Background
     const hero = document.querySelector('.hero');
     if (hero) {
-        let backgroundCount = 2; // Number of available background images
+        let backgroundCount = 3; // Number of available background images
         function getRandom() {
             return Math.floor(Math.random() * backgroundCount) + 1;
         }
