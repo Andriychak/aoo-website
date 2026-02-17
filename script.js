@@ -83,6 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function getRandom() {
             return Math.floor(Math.random() * backgroundCount) + 1;
         }
-        hero.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7))," + " url('img/hero/background" + getRandom() + ".jpg')";
+        hero.style.backgroundImage = "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7))," + " url('img/hero/background" + getRandom() + ".webp')";
     }
 });
