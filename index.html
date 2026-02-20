@@ -546,6 +546,7 @@
         }
 
         .accordion-header {
+            position: relative;
             width: 100%;
             padding: 20px 25px;
             background: none;
@@ -568,15 +569,23 @@
             transform: translateY(-2px);
         }
 
-        .accordion-header span svg {
-            width: 16px;
-            height: 16px;
-            margin-left: 10px;
-            fill: var(--accent-color);
+        .accordion-header::after {
+            content: "";
+            width: 24px;
+            height: 24px;
+            margin-left: 15px;
+            flex-shrink: 0;
             transition: var(--transition);
+            background-color: var(--accent-color); 
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
         }
 
-        .accordion-item.active .accordion-header span svg {
+        .accordion-item.active .accordion-header::after {
             transform: rotate(180deg);
         }
 
@@ -908,11 +917,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Які документи потрібно мати з собою для візиту? 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Для більшості дій достатньо паспорта та ідентифікаційного коду (РНОКПП). Якщо питання стосується майна, шлюбу чи бізнесу — перелік документів може бути ширшим. Зателефонуйте нам, і ми надамо чіткий список саме для вашого випадку.</p>
@@ -921,11 +925,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Які документи потрібні для оформлення довіреності? 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Для оформлення довіреності необхідно мати при собі оригінал паспорта та реєстраційний номер облікової картки платника податків (ІПН). Якщо довіреність стосується розпорядження майном, бажано мати копії правовстановлюючих документів на це майно.</p>
@@ -934,11 +933,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Чи можна оформити довіреність без присутності особи, на яку вона видається? 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Так, присутність повіреного (того, на кого оформлюють) не обов’язкова. Нам потрібні лише його паспортні дані. Проте присутність довірителя (того, хто видає довіреність) з оригіналом паспорта є обов’язковою.</p>
@@ -947,11 +941,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Скільки часу займає засвідчення копій чи підписів? 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Зазвичай це займає від 15 до 30 хвилин. Ми цінуємо ваш час, тому рекомендуємо надіслати скан-копії заздалегідь, щоб до вашого приходу документи були вже підготовлені.</p>
@@ -960,11 +949,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Чи можливий виїзд нотаріуса? 
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Так, за попередньою домовленістю можливий виїзд нотаріуса для вчинення нотаріальних дій поза межами офісу (в лікарню, додому, в офіс) в межах Львівського міського нотаріального округу.</p>
@@ -973,11 +957,6 @@
                     <div class="accordion-item">
                         <button class="accordion-header">
                             Як записатися на прийом у вихідний день?
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
-                                </svg>
-                            </span>
                         </button>
                         <div class="accordion-content">
                             <p>Прийом у суботу або неділю можливий виключно за попереднім записом. Будь ласка, зателефонуйте нам у робочий час, щоб узгодити зручний для вас час візиту.</p>
