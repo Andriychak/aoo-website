@@ -107,7 +107,7 @@
 
         /* Base colors */
         :root {
-            --primary-color: #222222; /* Майже чорний - основний текст та заголовки */
+            --primary-color: #222222; /* Almost black - main text and headings */
             --accent-color: #556832;  /* Dark olive for accents */
             --light-bg: #f7f7f7;      /* Light grey background for sections */
             --text-color: #444444;    /* Base text color */
@@ -115,7 +115,7 @@
             --transition: all 0.3s ease;
         }
 
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -377,15 +377,25 @@
         }
 
         .hero {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 500px;
             display: flex;
+            position: relative;
             align-items: center;
             text-align: center;
             color: var(--white);
+        }
+
+        .hero::before {
+            content: "";
+            background-image: var(--hero-bg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 500px;
+            width: 100%;
+            top: 92px;
+            left: 0;
+            position: fixed;
+            z-index: -1;
         }
 
         .hero-content h1 {
@@ -406,6 +416,10 @@
         }
 
         /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 3fr 2fr;
@@ -414,7 +428,7 @@
         }
 
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 38px;
         }
 
         .about-info-box {
@@ -466,7 +480,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -708,14 +722,22 @@
             .map-container { height: 350px; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 882px) {
+            .mobile-nav { top: 131px; }
+            .hero::before { top: 131px; }
+        }
+
+        @media (max-width: 800px) {
             .nav { display: none; }
             .burger-menu { display: flex; }
             .header { padding: 10px 0; }
-            .mobile-nav { top: 110px; }
+            .mobile-nav { top: 74px; }
+
+            .hero::before { top: 74px; }
             
             .logo-text .district { font-size: 0.65rem; }
             .logo-text .name { font-size: 1.1rem; }
+            .logo-text .position { font-size: 0.85rem; }
             
             .section-title { font-size: 1.8rem; margin-bottom: 40px; }
             .hero-content h1 { font-size: 1.8rem; }
@@ -723,6 +745,35 @@
             
             .messenger-fixed { bottom: 20px; right: 20px; }
             .m-btn { width: 50px; height: 50px; font-size: 24px; }
+        }
+
+        @media (max-width: 474px) {
+            .mobile-nav { top: 95px; }
+            .hero::before { top: 95px; }
+        }
+
+        @media (max-width: 466px) {
+            .mobile-nav { top: 108px; }
+            .hero::before { top: 108px; }
+        }
+
+        @media (max-width: 380px) {
+            .logo-text .district { font-size: 0.5rem; }
+            .logo-text .name { font-size: 1.0rem; }
+            .logo-text .position { font-size: 0.7rem; }
+
+            .mobile-nav { top: 95px; }
+
+            .hero::before { top: 95px; }
+            .hero-content h1 { font-size: 1.5rem; }
+            .hero-content p { font-size: 0.9rem; }
+            .section-title { font-size: 1.5rem; margin-bottom: 30px;}
+        }
+
+        @media (max-width: 346px) {
+            .mobile-nav { top: 115px; }
+            .hero::before { top: 115px; }
+            .contact-item { padding: 20px;}
         }
     </style>
 
@@ -784,7 +835,7 @@
     </div>
 
     <main>
-        <section class="hero" role="img" aria-label="Приватний нотаріус Андрійчак Ольга Олексіївна">
+        <section class="section hero" role="img" aria-label="Приватний нотаріус Андрійчак Ольга Олексіївна">
             <div class="container hero-content">
                 <h1>Надійний захист ваших прав та законних інтересів</h1>
                 <p>Професійні нотаріальні дії, консультації та оформлення документів у Львові та Винниках.</p>
